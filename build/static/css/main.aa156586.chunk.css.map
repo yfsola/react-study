@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.module.css"],"names":[],"mappings":"AAAA,gBACE,iBACE,WAAW,CACX,YACF,CACF","file":"main.aa156586.chunk.css","sourcesContent":[".app {\n  .logo {\n    width:200px;\n    height: 200px;\n  }\n}"]}
