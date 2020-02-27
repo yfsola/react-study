@@ -3,7 +3,7 @@ import React from 'react';
 // 渲染真实dom vdom - > dom
 import ReactDOM from 'react-dom';
 // import './index.css';
-import style from './index.module.css'
+import styles from './index.module.css'
 import logo from './logo.svg'
 const obj = {
   firstName: 'hurry',
@@ -17,8 +17,9 @@ const arr = [0,1,2]
 const show = true
 const name = 'react'
 const jsx = (
-  <div className={style.app}>
+  <div className={styles.app}>
 
+    <img src={logo} className={styles.logo}/>
     
     <div>hello ,{name}</div>
     <div>{formatName(obj)}</div>
@@ -28,10 +29,6 @@ const jsx = (
     <ul>
       {arr.map(item => <li key={item}>{item}</li>)}
     </ul>
-
-
-    <img src={logo} className={style.logo}/>
-
 
   </div>
 );
