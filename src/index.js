@@ -1,45 +1,56 @@
 //负责逻辑控制，将数据-> vDOM
-import React from 'react';
+import React from './kreact';
 // 渲染真实dom vdom - > dom
-import ReactDOM from 'react-dom';
-// import './index.css';
-import styles from './index.module.css'
-import logo from './logo.svg'
-const obj = {
-  firstName: 'hurry',
-  lastName: 'pottry'
+import ReactDOM from './kreact/ReactDOM';
+import Component from './kreact/Component';
+import App from './App';
+import './index.css'
+
+function FunctionComponent({name}) {
+  return (
+    <div className="border">
+      <h2>hello,{name}</h2>
+    </div>
+  )
 }
-function formatName(name) {
-  return name.firstName + ' ' + name.lastName
+
+class ClassComponent extends Component {
+  render() { 
+    const {name} = this.props
+    return (
+      <h3>hello,{name}</h3>
+      );
+  }
 }
-const greed = <div>jsx对象</div>
-const arr = [0,1,2]
-const show = true
-const name = 'react'
+ 
+
 const jsx = (
-  <div className={styles.app}>
+  <div className="border">
+    <p>这是一个文本</p>
+    <a href="http://kaikeba.com">开课吧</a>
+    <button onClick={() => console.log('点击测试')}>click</button>
 
-    <img src={logo} className={styles.logo}/>
-    
-    <div>hello ,{name}</div>
-    <div>{formatName(obj)}</div>
-    {greed}
-    {show?greed:'不显示'}
-    {show && greed}
-    <ul>
-      {arr.map(item => <li key={item}>{item}</li>)}
-    </ul>
+    <ClassComponent  name="class"/>
+    <FunctionComponent name="function"/>
 
+    <>
+      <h5>123</h5>
+      <h5>123</h5>
+    </>
+
+    {
+      ['aaa','bbb','ccc'].map(item => {
+        return (
+          <p key="item">item</p>
+        )
+      })
+    }
   </div>
-);
+)
+
 
 // 渲染页面，将引入的APP页面插入到ID为root的元素中
 ReactDOM.render(jsx, document.getElementById('root'));
 
-// 基本使用 ，表达式用{}包裹
-// 函数的使用
-// jsx对象
-// 条件语句
-// 数组
-// 属性
+
 
